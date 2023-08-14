@@ -17,7 +17,7 @@ export const userHashedId = async (): Promise<string> => {
     return hashValue(user.email);
   }
   else {
-    return hashValue(user.UserPrincipalName)
+    return hashValue(user.userPrincipalName)
   }
 
   throw new Error("User not found");
@@ -27,6 +27,7 @@ export type UserModel = {
   name: string;
   image: string;
   email: string;
+  userPrincipalName: string;
 };
 
 export const hashValue = (value: string): string => {
