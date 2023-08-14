@@ -70,13 +70,13 @@ jobs:
       - name: 🗝️ Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ vars.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: 🚀 Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ vars.AZURE_APP_SERVICE_NAME }}
+          app-name: ${{ secrets.AZURE_APP_SERVICE_NAME }}
           package: ${{ github.workspace }}/Nextjs-site.zip
 
       - name: 🧹 Cleanup
